@@ -37,8 +37,11 @@ def canUnlockAll(boxes):
     Return: - true: if all boxes inside boxes could be opened
             - false: if not all could be opened
     """
-    if (len(boxes) == 0):
-        return True
+    if (len(boxes) == 0 or type(boxes) is not list):
+        return False
+    for elem in boxes:
+        if type(elem) is not list:
+            return False
     result = recursion(boxes, [0], boxes[0])
     if(len(result) == len(boxes)):
         return True
