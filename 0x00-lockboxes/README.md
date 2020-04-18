@@ -1,12 +1,11 @@
 # LOCKBOXES
 
-In this problem the idea is to keep in one array all the keys that we found
-but only the different ones not the keys that we already have
+In this problem we have to store the keys in order to know if with the keys that
+they give us per box we can open all the boxes
 
-Once we have all of them, we have to compare the number of keys or openedBox
-with the number of elements in boxes. If both are equal is true else is a false
+We have to use iteractive form because Python using recursion only have 1000 depth
+after that it breaks, that is the reaso. I also did this exercise using recursion
+because i didnt know it ;)
 
-the logic was to initialize openBox with [0] because is the first box that we
-opened, then save the new key in openBox, and after recursion update the
-list of openBox that we bring back from recursions, and get the ultimate list
-of opened boxes
+the idea is to store only the keys that we already dont have, but i dont have
+to store the keys that have a number bigger than the length of boxes
