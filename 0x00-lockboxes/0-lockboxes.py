@@ -20,7 +20,7 @@ def recursion(boxes, openBox, current):
     """
     if (len(current) > 0):
         for elem in current:
-            if (elem not in openBox):
+            if (elem < len(boxes) and elem not in openBox):
                 openBox.append(elem)
                 r = recursion(boxes, openBox, boxes[elem])
                 openBox = r
@@ -37,6 +37,8 @@ def canUnlockAll(boxes):
     Return: - true: if all boxes inside boxes could be opened
             - false: if not all could be opened
     """
+    if(type(boxes) is not list or len(boxes) == 0):
+        return False
     result = recursion(boxes, [0], boxes[0])
     if(len(result) == len(boxes)):
         return True
