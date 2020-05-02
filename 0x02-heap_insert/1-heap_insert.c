@@ -82,6 +82,8 @@ heap_t *insert_order(heap_t *head, int value)
 	if (deepl == 0 || deepr == 0)
 	{
 		new = malloc(sizeof(heap_t));
+		if (!new)
+			return (NULL);
 		new->n = value;
 		if (deepl == 0)
 			head->left = new;
