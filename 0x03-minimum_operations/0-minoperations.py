@@ -33,5 +33,4 @@ def minOperations(n):
 
         Actual = Paste
 
-    print(Actual)
     return operations
