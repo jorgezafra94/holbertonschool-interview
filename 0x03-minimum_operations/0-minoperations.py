@@ -11,25 +11,19 @@ def minOperations(n):
     Actual = 'H'
     operations = 0
 
-    if type(n) is not int or n < 1:
+    if type(n) is not int or n < 2:
         return 0
 
     while (n != len(Actual)):
 
-        if operations == 0:
+        if (n % len(Actual) != 0):
+            Paste = Actual + CopyAll
+            operations += 1
+
+        else:
             CopyAll = Actual
             Paste = Actual + CopyAll
             operations += 2
-
-        else:
-            if (n % len(Actual) != 0):
-                Paste = Actual + CopyAll
-                operations += 1
-
-            else:
-                CopyAll = Actual
-                Paste = Actual + CopyAll
-                operations += 2
 
         Actual = Paste
 
