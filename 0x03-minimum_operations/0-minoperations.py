@@ -14,10 +14,7 @@ def minOperations(n):
     if type(n) is not int or n < 2:
         return 0
 
-    for i in range(n):
-
-        if n == len(Actual):
-            return operations
+    while (n != len(Actual)):
 
         if (n % len(Actual) != 0):
             Paste = Actual + CopyAll
@@ -29,3 +26,5 @@ def minOperations(n):
             operations += 2
 
         Actual = Paste
+
+    return operations
