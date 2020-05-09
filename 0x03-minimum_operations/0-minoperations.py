@@ -8,7 +8,7 @@ def minOperations(n):
     """
     n = Final number of H
     """
-    Actual 'H'
+    Actual = 'H'
     CopyAll = Actual
     operations = 0
 
