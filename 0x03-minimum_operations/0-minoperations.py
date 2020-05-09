@@ -8,17 +8,17 @@ def minOperations(n):
     """
     n = Final number of H
     """
-    Actual = 1
-    CopyAll = 0
+    Actual 'H'
+    CopyAll = Actual
     operations = 0
 
     if type(n) is not int or n < 2:
         return 0
 
     else:
-        while (Actual != n):
+        while (len(Actual) != n):
 
-            if (n % Actual == 0):
+            if (n % len(Actual) == 0):
                 CopyAll = Actual
                 Paste = Actual + CopyAll
                 operations += 2
