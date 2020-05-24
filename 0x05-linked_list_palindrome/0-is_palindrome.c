@@ -6,8 +6,8 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int count = 0, c, c1, c2;
-	listint_t *begin, *fin, *aux;
+	int count = 0, c, numbers[1000000];
+	listint_t *aux;
 
 
 	if (!(*head))
@@ -15,19 +15,14 @@ int is_palindrome(listint_t **head)
 	aux = *head;
 	while (aux != NULL)
 	{
+		numbers[count] = aux->n;
 		aux = aux->next;
 		count++;
 	}
 	count--;
 	for (c = 0; c <= count / 2; c++)
 	{
-		begin = *head;
-		fin = *head;
-		for (c1 = 0; c1 < c; c1++)
-			begin = begin->next;
-		for (c2 = 0; c2 < count - c; c2++)
-			fin = fin->next;
-		if (begin->n != fin->n)
+		if (numbers[c] != numbers[count - c])
 			return (0);
 	}
 	return (1);
