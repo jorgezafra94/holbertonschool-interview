@@ -45,14 +45,37 @@ void reverse(listint_t *head, listint_t **rev)
 }
 
 /**
+ * recursion - function that realize the comparison
+ * @begin: original linked_list
+ * @fin: actual point of the linked_list
+ * Return: 1 if the comparison is equal 0 if not
+ */
+int recursion(listint_t *begin, listint_t *fin)
+{
+	int aux;
+
+
+	if (!fin)
+		return (1);
+	aux = recursion(begin->next, fin->next);
+	if (aux != 0)
+	{
+		if (begin->n != fin->n)
+			return (0);
+		else
+			return (1);
+	}
+	return (aux);
+}
+/**
  * is_palindrome - function that says if a linked_list is palidrome or not
  * @head: pointer to the head of the linked_list
  * Return: 1 if the linked list is palindrome or 0 if not
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *aux, *rev, *revaux;
-	int count = 0, mid = 0;
+	listint_t *aux, *rev;
+	int result;
 
 	if (!(*head))
 		return (1);
@@ -60,31 +83,7 @@ int is_palindrome(listint_t **head)
 	rev = NULL;
 	aux = *head;
 	reverse(aux, &rev);
-	revaux = rev;
-	while (aux)
-	{
-		aux = aux->next;
-		count++;
-	}
-	aux = *head;
-	mid = (count - 1) / 2;
-	count = 0;
-	while (aux)
-	{
-		if (count <= mid)
-		{
-			if (aux->n != rev->n)
-			{
-				free_listint(revaux);
-				return (0);
-			}
-			aux = aux->next;
-			rev = rev->next;
-			count++;
-		}
-		else
-			break;
-	}
-	free_listint(revaux);
-	return (1);
+	result = recursion(aux, rev);
+	free_listint(rev);
+	return (result);
 }
