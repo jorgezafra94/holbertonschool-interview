@@ -35,12 +35,12 @@ listint_t *add_nodeint_start(listint_t **head, int n)
  * @rev: variable to store the reversed linked list
  * Return: nothing
  */
-void reverse(listint_t **head, listint_t **rev)
+void reverse(listint_t *head, listint_t **rev)
 {
-	while (*head)
+	while (head)
 	{
-		add_nodeint_start(rev, (*head)->n);
-		*head = (*head)->next;
+		add_nodeint_start(rev, (head)->n);
+		head = (head)->next;
 	}
 }
 
@@ -52,23 +52,38 @@ void reverse(listint_t **head, listint_t **rev)
 int is_palindrome(listint_t **head)
 {
 	listint_t *aux, *rev, *revaux;
+	int count = 0, mid = 0;
 
 	if (!(*head))
 		return (1);
 
 	rev = NULL;
 	aux = *head;
-	reverse(head, &rev);
+	reverse(aux, &rev);
 	revaux = rev;
 	while (aux)
 	{
-		if (aux->n != rev->n)
-		{
-			free_listint(revaux);
-			return (0);
-		}
 		aux = aux->next;
-		rev = rev->next;
+		count++;
+	}
+	aux = *head;
+	mid = (count - 1) / 2;
+	count = 0;
+	while (aux)
+	{
+		if (count <= mid)
+		{
+			if (aux->n != rev->n)
+			{
+				free_listint(revaux);
+				return (0);
+			}
+			aux = aux->next;
+			rev = rev->next;
+			count++;
+		}
+		else
+			break;
 	}
 	free_listint(revaux);
 	return (1);
