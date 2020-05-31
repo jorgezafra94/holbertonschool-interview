@@ -29,7 +29,7 @@ try:
                     print("{}: {}".format(status_list[i], value_list[i]))
             counter = 0
 
-except:
+except Exception:
     pass
 
 finally:
