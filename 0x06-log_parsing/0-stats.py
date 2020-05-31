@@ -13,6 +13,7 @@ counter = 0
 
 try:
     for line in sys.stdin:
+
         line_parts = shlex.split(line)
         if len(line_parts) > 2:
             status = line_parts[-2]
