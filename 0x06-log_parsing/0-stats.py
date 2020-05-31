@@ -13,18 +13,18 @@ counter = 0
 
 try:
     for line in sys.stdin:
-        if len(shlex.split(line)) == 7:
-            if counter < 10:
-                line_parts = shlex.split(line)
-                status = line_parts[5]
-                size = line_parts[6]
+        line_parts = shlex.split(line)
+        if len(line_parts) > 2:
+            status = line_parts[-2]
+            size = line_parts[-1]
 
-                total_size += int(size)
-                for i in range(len(status_list)):
-                    if status_list[i] == status:
-                        value_list[i] += 1
-                    counter += 1
-            else:
+            total_size += int(size)
+            for i in range(len(status_list)):
+                if status_list[i] == status:
+                    value_list[i] += 1
+            counter += 1
+
+            if counter >= 10:
                 print("File size: {}".format(total_size))
                 for i in range(len(status_list)):
                     if value_list[i] > 0:
