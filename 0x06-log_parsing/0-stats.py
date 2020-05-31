@@ -15,17 +15,16 @@ try:
     for line in sys.stdin:
         line_parts = shlex.split(line)
         if len(line_parts) > 2:
-            if counter < 10:
-                status = line_parts[-2]
-                size = line_parts[-1]
+            status = line_parts[-2]
+            size = line_parts[-1]
 
-                total_size += int(size)
-                for i in range(len(status_list)):
-                    if status_list[i] == status:
-                        value_list[i] += 1
-                counter += 1
+            total_size += int(size)
+            for i in range(len(status_list)):
+                if status_list[i] == status:
+                    value_list[i] += 1
+            counter += 1
 
-            else:
+            if counter >= 10:
                 print("File size: {}".format(total_size))
                 for i in range(len(status_list)):
                     if value_list[i] > 0:
