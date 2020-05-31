@@ -31,7 +31,10 @@ try:
                         print("{}: {}".format(status_list[i], value_list[i]))
                 counter = 0
 
-except KeyboardInterrupt:
+except:
+    pass
+
+finally:
     print("File size: {}".format(total_size))
     for i in range(len(status_list)):
         if value_list[i] > 0:
