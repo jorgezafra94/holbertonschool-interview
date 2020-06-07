@@ -11,19 +11,16 @@ int check_cycle(listint_t *list)
 
 	if (!list)
 		return (0);
-
-	if (list && list->next && list == list->next)
-		return (1);
-
-	rabbit = list->next;
 	turtle = list;
-
-	while (turtle && rabbit && rabbit->next)
+	rabbit = list;
+	/* with this form we verify all the positions
+	  in a faster way*/
+	while (rabbit && rabbit->next && rabbit->next->next)
 	{
-		if (rabbit == turtle)
-			return (1);
 		turtle = turtle->next;
 		rabbit = rabbit->next->next;
+		if (rabbit == turtle)
+			return (1);
 	}
 	return (0);
 }
