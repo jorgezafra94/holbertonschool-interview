@@ -8,10 +8,14 @@ int check_cycle(listint_t *list)
 {
 	listint_t *rabbit, *turtle;
 
+
+	if (!list)
+		return (0);
+
 	rabbit = list;
 	turtle = list;
 
-	while (rabbit && rabbit->next->next && turtle && turtle->next)
+	while (rabbit->next->next && turtle->next)
 	{
 		rabbit = rabbit->next->next;
 		turtle = turtle->next;
