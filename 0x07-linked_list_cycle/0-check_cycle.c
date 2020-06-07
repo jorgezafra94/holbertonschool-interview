@@ -8,6 +8,13 @@ int check_cycle(listint_t *list)
 {
 	listint_t *rabbit, *turtle;
 
+
+	if (!list)
+		return (0);
+
+	if (list && list->next && list == list->next)
+		return (0);
+
 	rabbit = list;
 	turtle = list;
 
