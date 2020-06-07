@@ -12,15 +12,15 @@ int check_cycle(listint_t *list)
 	if (!list)
 		return (0);
 
-	rabbit = list;
-	turtle = list;
+	rabbit = list->next->next;
+	turtle = list->next;
 
-	while (rabbit->next->next && turtle->next)
+	while (rabbit && turtle)
 	{
-		rabbit = rabbit->next->next;
-		turtle = turtle->next;
 		if (rabbit == turtle)
 			return (1);
+		rabbit = rabbit->next->next;
+		turtle = turtle->next;
 	}
 	return (0);
 }
