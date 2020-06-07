@@ -9,18 +9,20 @@ int check_cycle(listint_t *list)
 	listint_t *rabbit, *turtle;
 
 
-	if (!list)
+	if (!list || !list->next || !list->next->next)
 		return (0);
 
-	rabbit = list;
-	turtle = list;
+	rabbit = list->next->next;
+	turtle = list->next;
 
-	while (turtle->next && rabbit->next->next)
+	while (turtle && rabbit)
 	{
-		rabbit = rabbit->next->next;
-		turtle = turtle->next;
 		if (rabbit == turtle)
 			return (1);
+		if (!turtle->next || !rabbit->next->next)
+			return (0);
+		rabbit = rabbit->next->next;
+		turtle = turtle->next;
 	}
 	return (0);
 }
