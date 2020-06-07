@@ -1,4 +1,4 @@
-#include "lists.h"
+a#include "lists.h"
 /**
  * check_cycle - find if a linked list has a loop
  * @list: linked list to go throught
@@ -18,7 +18,7 @@ int check_cycle(listint_t *list)
 	rabbit = list;
 	turtle = list;
 
-	while (turtle && turtle->next && rabbit && rabbit->next->next)
+	while (turtle && rabbit && rabbit->next->next)
 	{
 		rabbit = rabbit->next->next;
 		turtle = turtle->next;
