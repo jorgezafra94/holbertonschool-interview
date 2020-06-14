@@ -7,9 +7,11 @@
  */
 int is_palindrome(unsigned long n)
 {
-	unsigned long digits = 1;
-	int first, last, counter = 0, aux = 0;
+	unsigned long digits = 1, first, last, counter = 0, aux = 0;
 
+
+	if (n < 10)
+		return (1);
 	/* we get the max number of digits */
 	while ((n % digits) != n)
 	{
