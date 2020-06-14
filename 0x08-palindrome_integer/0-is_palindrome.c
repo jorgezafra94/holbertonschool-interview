@@ -7,20 +7,21 @@
  */
 int is_palindrome(unsigned long n)
 {
-	unsigned long digits = 1, first, last, counter = 0, aux = 0;
+	unsigned long digits = 1, first, last, aux = 0, counter = 0;
 
 
 	if (n < 10)
 		return (1);
+
+	aux = n;
 	/* we get the max number of digits */
-	while ((n % digits) != n)
+	while (aux > 9)
 	{
 		digits = digits * 10;
+		aux = aux / 10;
 		counter++;
 	}
-
-	digits = digits / 10;
-
+	aux = 0;
 	/* now we start the comparison and then we remove that numbers*/
 	while (counter > aux)
 	{
@@ -31,12 +32,12 @@ int is_palindrome(unsigned long n)
 			return (0);
 
 		/* remove the first and last */
-		n = n % digits;
-		n = n / 10;
-
-		digits = digits / 100;
 		counter--;
 		aux++;
+
+		n = (n % digits) / 10;
+		digits = digits / 100;
+
 	}
 
 	return (1);
