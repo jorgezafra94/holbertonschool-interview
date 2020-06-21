@@ -17,18 +17,36 @@ def validUTF8(data):
     if data is None or len(data) == 0:
         return False
 
-    arr = [128, 64, 32, 16, 8, 4, 2, 1]
+    byte = 0
     valid = []
-    for elem in data:
-        aux = elem
-        for i in range(len(arr)):
-            if aux >= arr[i]:
-                aux = aux - arr[i]
+    for i in data:
+        # number of bytes, 255 are 8 bytes in 1
+        result = i & 255
+        if byte == 0:
+            # 1byte
+            if result < 128:
+                valid.append(True)
+            # 2bytes
+            elif result >= 192 and result <= 223:
+                byte = 1
+                valid.append(True)
+            #  3bytes
+            elif result >= 224 and result <= 239:
+                byte = 2
+                valid.append(True)
+            # 4bytes
+            elif result >= 240 and result <= 247:
+                byte = 3
+                valid.append(True)
+            else:
+                valid.append(False)
 
-        if aux == 0:
-            valid.append(True)
         else:
-            valid.append(False)
+            if result >= 128 and result <= 191:
+                valid.append(True)
+            else:
+                valid.append(False)
+            byte = byte - 1
 
-    answer = all(valid)
-    return answer
+    result = all(valid)
+    return result
