@@ -45,5 +45,7 @@ def validUTF8(data):
                 valid.append(False)
             byte = byte - 1
 
+    if byte != 0:
+        valid.append(False)
     result = all(valid)
     return result
