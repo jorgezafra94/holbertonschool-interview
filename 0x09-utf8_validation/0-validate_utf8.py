@@ -14,9 +14,6 @@ def validUTF8(data):
     * Each integer represents 1 byte of data, therefore you only need to
       handle the 8 least significant bits of each integer
     """
-    if data is None or len(data) == 0:
-        return False
-
     byte = 0
     valid = []
     for i in data:
