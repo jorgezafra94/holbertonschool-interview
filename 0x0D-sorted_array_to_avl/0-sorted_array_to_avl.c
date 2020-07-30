@@ -37,7 +37,8 @@ avl_t *AVL_tree(int *array, int begin, int last)
 }
 
 /**
- * sorted_array_to_avl - create a avl tree
+ * sorted_array_to_avl - create a avl tree, as it is sorted we can
+ * use the middle to create the nodes
  * @array: array to turn into avl tree
  * @size: size of the array
  * Return: return Null if fails, or the avl tree
