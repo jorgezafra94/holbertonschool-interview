@@ -7,6 +7,10 @@ rain
 def rain(walls):
     """
     calculate how much water will be retained after it rains.
+
+    we have to get the limits in left side, and also we have
+    to get limits in right side in order to know how much water
+    will be retained between walls
     """
     if len(walls) < 3:
         return 0
