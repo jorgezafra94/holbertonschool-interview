@@ -24,7 +24,7 @@ def hot_print(response, word_list, param, hot_dict):
     if param is None:
         lista = sorted(hot_dict.items(), key=lambda x: x[1])
         lista.reverse()
-        print(lista)
+        # print(lista)
         for key, value in lista:
             if value != 0:
                 print("{}: {}".format(key, value))
