@@ -4,7 +4,7 @@ rotate a matrix
 """
 
 
-def rotate_2d_m(matrix):
+def rotate_2d_matrix(matrix):
     """
     method to rotate matrix -> list of lists
     """
