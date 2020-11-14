@@ -80,7 +80,7 @@ List *add_node_end(List **list, char *str)
 		return (NULL);
 
 	if (*list == NULL)
-		return (first_node(list, str));
+		return (first(list, str));
 
 	aux = *list;
 	new = malloc(sizeof(List));
