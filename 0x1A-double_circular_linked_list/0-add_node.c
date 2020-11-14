@@ -84,7 +84,7 @@ List *add_node_end(List **list, char *str)
 
 	aux = *list;
 	new = malloc(sizeof(List));
-    
+
 	if (new == NULL)
 		return (NULL);
 	new->str = strdup(str);
