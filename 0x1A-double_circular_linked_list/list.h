@@ -1,6 +1,6 @@
 #ifndef ZETA
 #define ZETA
-#include <std.io>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 /**
